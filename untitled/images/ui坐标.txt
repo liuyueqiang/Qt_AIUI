@@ -1,0 +1,18 @@
+bg.png 1024*768
+jx.png xy 156-86 wh846-675
+sidebar.png xy17-79 wh122-675
+btn_jiankong.png 28-106 105-90
+btn_shishiquxian.png 28-215 105-90
+btn_shengchanbaobiao.png 28-324  105-90
+btn_chanshushezhi.png 28-432  105-90
+btn_io 28-541   105-90
+btn_baojing.png 28-650   105-90
+
+xiaobaikuang 179-95 387-320
+yunxingzhuangtai 179-95 112-39
+dangqianzhuangtai 217-172 80-28
+btn_daiji 316-169 106-34
+
+xiaobaikuang：585-95 387-320
+yunxingshuju：589-95 112-39
+label_jiechuweizhi 645-155 80-28

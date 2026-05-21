@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI布局规范模板</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #1e90ff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e90ff;
+            margin-top: 30px;
+            border-left: 4px solid #1e90ff;
+            padding-left: 10px;
+        }
+        .info-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        .info-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .info-table td:first-child {
+            background-color: #f0f8ff;
+            font-weight: bold;
+            width: 150px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .example {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .btn-export {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn-export:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 UI布局规范模板</h1>
+
+        <div class="note">
+            <strong>📌 使用说明：</strong><br>
+            1. 直接在表格中填写数据（可以在浏览器中编辑）<br>
+            2. 填写完成后，全选复制（Ctrl+A, Ctrl+C）<br>
+            3. 粘贴到Excel/WPS中保存<br>
+            4. 或者直接将整个页面内容发给AI生成代码
+        </div>
+
+        <h2>📊 项目基本信息</h2>
+        <table class="info-table">
+            <tr>
+                <td>项目名称</td>
+                <td contenteditable="true">国能机器人巡检系统</td>
+            </tr>
+            <tr>
+                <td>基准分辨率</td>
+                <td contenteditable="true">1024 × 768</td>
+            </tr>
+            <tr>
+                <td>缩放比例</td>
+                <td contenteditable="true">100% (1.0)</td>
+            </tr>
+        </table>
+
+        <h2>🎨 图层列表（从下到上）</h2>
+        <div class="example">
+            <strong>💡 填写提示：</strong><br>
+            • 序号：从1开始，数字越大越在上层<br>
+            • 元素类型：图片/按钮/输入框/QML组件/标签<br>
+            • 父元素：如果不是嵌套，填写"-"<br>
+            • 坐标：相对于窗口左上角的像素位置
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50px;">序号</th>
+                    <th style="width: 100px;">图层名称</th>
+                    <th style="width: 100px;">元素类型</th>
+                    <th style="width: 120px;">文件名</th>
+                    <th style="width: 60px;">X</th>
+                    <th style="width: 60px;">Y</th>
+                    <th style="width: 70px;">Width</th>
+                    <th style="width: 70px;">Height</th>
+                    <th style="width: 100px;">父元素</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">背景</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">bg.png</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">1024</td>
+                    <td contenteditable="true">768</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">全屏背景</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">侧边栏</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">sidebar.png</td>
+                    <td contenteditable="true">17</td>
+                    <td contenteditable="true">79</td>
+                    <td contenteditable="true">122</td>
+                    <td contenteditable="true">675</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">左侧导航栏背景</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">3</td>
+                    <td contenteditable="true">主面板</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">jx.png</td>
+                    <td contenteditable="true">156</td>
+                    <td contenteditable="true">86</td>
+                    <td contenteditable="true">846</td>
+                    <td contenteditable="true">675</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">右侧主内容区</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">4</td>
+                    <td contenteditable="true">监控按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_jiankong.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">106</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_jiankong1.png</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">5</td>
+                    <td contenteditable="true">实时曲线按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_shishiquxian.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">215</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_shishiquxian1.png</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">6</td>
+                    <td contenteditable="true">生产报表按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_shengchanbaobiao.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">324</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_shengchanbaobiao1.png</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">7</td>
+                    <td contenteditable="true">参数设置按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_chanshushezhe.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">432</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_chanshushezhi1.png（注意文件名不一致）</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">8</td>
+                    <td contenteditable="true">IO按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_io.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">541</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_io1.png</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">9</td>
+                    <td contenteditable="true">报警按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_baojing.png</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">650</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">侧边栏按钮，有悬停态btn_baojing1.png</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">10</td>
+                    <td contenteditable="true">小白框1</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">xiaobaikuang.png</td>
+                    <td contenteditable="true">179</td>
+                    <td contenteditable="true">95</td>
+                    <td contenteditable="true">387</td>
+                    <td contenteditable="true">320</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">主面板左侧信息框</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">11</td>
+                    <td contenteditable="true">运行状态标签</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">label_yunxingzhuangtai.png</td>
+                    <td contenteditable="true">179</td>
+                    <td contenteditable="true">95</td>
+                    <td contenteditable="true">112</td>
+                    <td contenteditable="true">39</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">小白框1顶部标题</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">12</td>
+                    <td contenteditable="true">当前状态标签</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">dangqianzhuangtai.png</td>
+                    <td contenteditable="true">217</td>
+                    <td contenteditable="true">172</td>
+                    <td contenteditable="true">80</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">小白框1内的状态文字</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">13</td>
+                    <td contenteditable="true">待机按钮</td>
+                    <td contenteditable="true">按钮</td>
+                    <td contenteditable="true">btn_daiji.png</td>
+                    <td contenteditable="true">316</td>
+                    <td contenteditable="true">169</td>
+                    <td contenteditable="true">106</td>
+                    <td contenteditable="true">34</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">小白框1内的按钮</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">14</td>
+                    <td contenteditable="true">小白框2</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">xiaobaikuang.png</td>
+                    <td contenteditable="true">585</td>
+                    <td contenteditable="true">95</td>
+                    <td contenteditable="true">387</td>
+                    <td contenteditable="true">320</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">主面板右侧信息框</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">15</td>
+                    <td contenteditable="true">运行数据标签</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">label_yunxingshuju.png</td>
+                    <td contenteditable="true">589</td>
+                    <td contenteditable="true">95</td>
+                    <td contenteditable="true">112</td>
+                    <td contenteditable="true">39</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">小白框2顶部标题</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">16</td>
+                    <td contenteditable="true">接触位置标签</td>
+                    <td contenteditable="true">图片</td>
+                    <td contenteditable="true">label_jiechuweizhi.png</td>
+                    <td contenteditable="true">645</td>
+                    <td contenteditable="true">155</td>
+                    <td contenteditable="true">80</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true">小白框2内的文字标签</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">17</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">18</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">19</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">20</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🖱️ 交互元素（按钮、输入框等）</h2>
+        <div class="example">
+            <strong>💡 填写提示：</strong><br>
+            • 类型：button/input/checkbox/radio/combobox<br>
+            • 文字：按钮上显示的文字<br>
+            • 图片：按钮背景图或图标（可选）<br>
+            • 事件：点击后的动作说明
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50px;">序号</th>
+                    <th style="width: 120px;">元素名称</th>
+                    <th style="width: 100px;">类型</th>
+                    <th style="width: 60px;">X</th>
+                    <th style="width: 60px;">Y</th>
+                    <th style="width: 70px;">Width</th>
+                    <th style="width: 70px;">Height</th>
+                    <th style="width: 100px;">父元素</th>
+                    <th style="width: 80px;">文字</th>
+                    <th style="width: 100px;">图片</th>
+                    <th>事件</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">监控按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">106</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_jiankong.png / btn_jiankong1.png</td>
+                    <td contenteditable="true">切换到监控页面</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">实时曲线按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">215</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_shishiquxian.png / btn_shishiquxian1.png</td>
+                    <td contenteditable="true">切换到实时曲线页面</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">3</td>
+                    <td contenteditable="true">生产报表按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">324</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_shengchanbaobiao.png / btn_shengchanbaobiao1.png</td>
+                    <td contenteditable="true">切换到生产报表页面</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">4</td>
+                    <td contenteditable="true">参数设置按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">432</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_chanshushezhe.png / btn_chanshushezhi1.png</td>
+                    <td contenteditable="true">切换到参数设置页面（注意文件名不一致）</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">5</td>
+                    <td contenteditable="true">IO按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">541</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_io.png / btn_io1.png</td>
+                    <td contenteditable="true">切换到IO控制页面</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">6</td>
+                    <td contenteditable="true">报警按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">28</td>
+                    <td contenteditable="true">650</td>
+                    <td contenteditable="true">105</td>
+                    <td contenteditable="true">90</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_baojing.png / btn_baojing1.png</td>
+                    <td contenteditable="true">切换到报警页面</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">7</td>
+                    <td contenteditable="true">待机按钮</td>
+                    <td contenteditable="true">button</td>
+                    <td contenteditable="true">316</td>
+                    <td contenteditable="true">169</td>
+                    <td contenteditable="true">106</td>
+                    <td contenteditable="true">34</td>
+                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">btn_daiji.png</td>
+                    <td contenteditable="true">切换到待机状态</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">8</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>⚙️ 特殊要求</h2>
+        <table class="info-table">
+            <tr>
+                <td>要求1</td>
+                <td contenteditable="true">窗口固定大小1024×768，不可调整大小</td>
+            </tr>
+            <tr>
+                <td>要求2</td>
+                <td contenteditable="true">按钮有正常态和悬停态两种图片，需要实现鼠标悬停切换效果</td>
+            </tr>
+            <tr>
+                <td>要求3</td>
+                <td contenteditable="true">侧边栏6个按钮需要实现点击切换页面功能</td>
+            </tr>
+            <tr>
+                <td>要求4</td>
+                <td contenteditable="true">图片从untitled/images/目录加载</td>
+            </tr>
+            <tr>
+                <td>要求5</td>
+                <td contenteditable="true">注意：btn_chanshushezhe.png和btn_chanshushezhi1.png文件名不一致（正常态zhe，悬停态zhi）</td>
+            </tr>
+        </table>
+
+        <h2>🔧 技术要求</h2>
+        <table class="info-table">
+            <tr>
+                <td>Qt版本</td>
+                <td contenteditable="true">5.12.8</td>
+            </tr>
+            <tr>
+                <td>开发方式</td>
+                <td contenteditable="true">Qt Widgets</td>
+            </tr>
+            <tr>
+                <td>布局方式</td>
+                <td contenteditable="true">绝对定位（setGeometry）</td>
+            </tr>
+            <tr>
+                <td>图片路径</td>
+                <td contenteditable="true">QCoreApplication::applicationDirPath() + "/untitled/images/"</td>
+            </tr>
+            <tr>
+                <td>按钮实现</td>
+                <td contenteditable="true">使用QLabel + 鼠标事件实现图片按钮，支持正常态/悬停态切换</td>
+            </tr>
+            <tr>
+                <td>其他要求</td>
+                <td contenteditable="true">生成完整的MainWindow.h和MainWindow.cpp，包含所有按钮的点击事件槽函数</td>
+            </tr>
+        </table>
+
+        <div class="note" style="margin-top: 30px;">
+            <strong>✅ 填写完成后：</strong><br>
+            1. 全选页面内容（Ctrl+A）<br>
+            2. 复制（Ctrl+C）<br>
+            3. 发给AI，提示词："请根据以下UI布局规范生成Qt代码："<br>
+            4. 或者保存为HTML文件，随时查看修改
+        </div>
+    </div>
+</body>
+</html>
